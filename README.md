@@ -4,6 +4,8 @@ Those are design fixes that fixes random unconsistency of padding, more chrome-l
 
 You can find more details in the `fixes.css` file.
 
+Some of those fixes were copied from [kbc8090's firefox material theme](https://github.com/kbc8090/firefox), thanks to him!
+
 ## Installation
 
 Follow the instructions in the [MaterialFox README](https://github.com/edelvarden/material-fox-updated/blob/main/README.md) to install the theme.
