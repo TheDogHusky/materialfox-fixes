@@ -1,0 +1,312 @@
+*, html, body {
+  text-rendering: optimizelegibility !important;
+	font-smooth: always !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Adjust the new tab button positioning to be more even */
+#tabs-newtab-button, #TabsToolbar #new-tab-button {
+    margin-inline-start: -2px !important;
+}
+
+/* Make unselected tabs foreground color a little less bright */
+.tabbrowser-tab:not([selected]) .tab-content {
+    color: color-mix(in srgb, var(--md-text-primary) 86%, transparent) !important;
+}
+
+/* Make Selected tab brighter */
+.tabbrowser-tab[selected] .tab-content {
+  color: var(--md-tab-label-color) !important;
+}
+
+#tabbrowser-arrowscrollbox {
+  #navigator-toolbox:not(:hover) &:not([highlight])::part(scrollbutton-down) {
+    transition: none !important;
+  }
+}
+
+/* Coloring some of the tooltips */
+tooltip {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 8px !important;
+    border: var(--md-menu-border-size) !important;
+    background-color: var(--md-background-color-0) !important;
+    border-color: var(--md-menu-border-color) !important;
+    color: var(--md-text-primary) !important;
+    padding: 6px !important;
+}
+
+/* Styling the bottom left mouseover URL hover/loading thing */
+#statuspanel-label {
+    color: var(--md-text-primary) !important;
+    background-color: var(--md-background-color-50) !important;
+    border-left: none !important;
+    border-right: var(--md-menu-border-size) !important;
+    border-bottom: none !important;
+    border-top: var(--md-menu-border-size) !important;
+    border-color: var(--md-menu-border-color) !important;
+    border-radius: 0px 4px 0px 0px !important;
+    padding: 4px !important;
+}
+
+/* Change height of bookmark bar */
+:root,
+#PersonalToolbar {
+  --bookmarks-toolbar-overlapping-browser-heigh: max(30px, 2em) !important;
+}
+
+:root[BookmarksToolbarOverlapsBrowser] #PersonalToolbar {
+    height: var(--bookmarks-toolbar-overlapping-browser-heigh) !important;
+}
+
+#PlacesToolbar,
+#PlacesToolbarItems {
+  align-items: center !important;
+  height: 30px !important;
+  margin-bottom: 2px !important;
+  margin-top: 0px !important;
+}
+
+/* Make URL bar fade in and out on mouse hover like Chrome */
+#urlbar-background, #searchbar {
+    background-color: var(--md-background-color-50) !important;
+    transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; 
+	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;*/
+    border: 1px solid var(--md-menu-border-color) !important;
+    transition-delay: 40ms !important;
+}
+
+/* Make the little inset border figure that chrome has on selected URLbar result, proud of this.  I make it 1px thicker than chrome does. */
+.urlbarView-row {
+  padding: 0px 0px !important;
+  border-left: 0px !important;
+  padding-left: 5px !important;
+  @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+    margin-inline: 3px !important;
+  }
+  @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+    margin-inline: 2px !important;
+  }
+  border-radius: 0px !important;
+}
+
+.urlbarView-row-inner[selected]::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    left: 0px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    min-width: 5px !important;
+    max-width: 5px !important;
+    height: 100% !important;
+    background-color: var(--md-accent-color) !important;
+    clip-path: inset(0 0 0 0 round 0px 5px 5px 0px) !important;
+    z-index: 1 !important;
+}
+
+.urlbarView-row {
+  &[selected] {
+    position: relative !important;
+    color: var(--md-tab-label-color) !important;
+  }
+}
+
+.urlbarView-row {
+  &[selected]:active {
+    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+  }
+}
+
+.urlbarView-button {
+  &[selected] {
+    outline-color: var(--md-accent-color) !important;
+  }
+}
+
+.urlbarView-results {
+  padding-block: 0 10px !important;
+}
+
+/* Materialfox already does this, but also here in case.. */
+#tabbrowser-tab-tooltip {
+    display: inherit !important;
+}
+
+/* Puts tooltip on close button on tab */
+#tabbrowser-tab-tooltip:not([data-l10n-id="tabbrowser-close-tabs-tooltip"]){
+    visibility: hidden !important;
+}
+
+#urlbar:is([open]) #urlbar-background {
+    background-color: var(--md-background-color-0) !important;
+}
+
+/* Making the context and other mensu look a little better and even */
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    menupopup, panel:not(#autoscroller) {
+        --panel-border-radius: 8px !important;
+        border-radius: var(--panel-border-radius) !important;
+        --panel-padding: 4px !important;
+    }
+}
+
+menupopup, panel {
+  &::part(content) {
+    border-radius: 8px !important;
+  }
+}
+
+menupopup {
+  @media (-moz-windows-mica-popups) {
+      appearance: none !important;
+  }
+}
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    menu, menuitem {
+        margin-inline-start: 0px !important;
+        margin-inline-end: 0px !important;
+        padding-block: 14px !important;
+        color: light-dark(MenuText, var(--md-tab-label-color)) !important;
+        font-family: system-ui !important;
+    }
+}
+
+#ContentSelectDropdown > menupopup > menucaption, #ContentSelectDropdown > menupopup > menuitem {
+  font-family: system-ui !important;
+}
+
+select menupopup, select menuitem, menulist menupopup, menulist menuitem, .expander-down menupopup, .expander-down menuitem, .expander-up menupopup, .expander-up menuitem, button[type="menu"] menupopup, button[type="menu"] menuitem {
+  line-height: normal !important;
+}
+
+/* Reduce padding on context menu separators */
+menuseparator::before {
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+}
+
+menuseparator {
+    padding-inline: 0px !important;
+}
+
+/* Tab separator moved 1px left for chrome since it was mis-aligned */
+.tab-content {
+  overflow: visible !important;
+    &::before,
+    &::after {
+      @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+        width: 2px !important;
+        height: 16px !important;
+        left: -1px !important;
+      }
+      @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+        width: 1px !important;
+        height: 18px !important;
+        left: 0 !important;
+      }
+    }
+}
+
+#alltabs-button {
+  margin-top: -2px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  fill: var(--md-tab-label-color) !important;
+  .toolbarbutton-badge-stack {
+    border-radius: 10px !important;
+  }
+}
+
+#alltabs-button .toolbarbutton-badge-stack {
+  transform: translate(0px, 1px) !important;
+}
+
+#tabs-newtab-button,
+  #new-tab-button {
+& > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  width: calc(var(--tab-min-height) - 11px) !important;
+  height: calc(var(--tab-min-height) - 11px) !important;
+  padding: 7px !important;
+  margin-inline-start: -3px !important;
+  box-shadow: unset !important;
+  }
+}
+
+.tabbrowser-tab[pinned] {
+  max-width: 46px !important;
+  min-width: 46px !important;
+}
+
+.tabbrowser-tab[pinned] .tab-content {
+  padding: 0 13px !important;
+}
+
+.tabbrowser-tab {
+  font-size: inherit !important;
+}
+
+/* More even spacing on the toolbar just like chrome */
+toolbar .toolbaritem-combined-buttons {
+  margin-inline: 0 !important; 
+}
+
+.toolbaritem-combined-buttons:not([widget-type="button-and-view"], [widget-type="custom"]), .toolbaritem-menu-buttons {
+  margin-inline-end: 0 !important;
+}
+
+toolbar .toolbarbutton-1 {
+  padding: 0 calc(var(--toolbarbutton-outer-padding) * 2) !important;
+}
+
+toolbaritem#zoom-controls {
+  padding: 0 calc(var(--toolbarbutton-outer-padding) * 2) !important
+}
+
+#urlbar-container, #search-container {
+  --urlbar-margin-inline: 4px !important;
+}
+
+toolbar .toolbarbutton-1#zoom-out-button {
+  padding: 0 calc(var(--toolbarbutton-outer-padding) * 2) 0 0 !important;
+} 
+toolbar .toolbarbutton-1#zoom-in-button {
+  padding: 0 0 0 calc(var(--toolbarbutton-outer-padding) * 2) !important;
+}
+
+/* Fix the fact that the precedent rules cancels this good behavior */
+#nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child,
+#nav-bar-customization-target > toolbarpaletteitem:first-child > :is(toolbarbutton, toolbaritem) {
+  padding-inline-start: var(--toolbar-start-end-padding) !important;
+}
+
+#PanelUI-menu-button {
+  padding-inline-end: var(--toolbar-start-end-padding) !important;
+}
+
+/* More even padding on tabs on the X axis when chrome ui refresh is enabled (the x button was off by one pixel on the left, the favicon was also off)  */
+.tab-content {
+  padding: 0 10px !important;
+}
+
+@media (-moz-pref("userChrome.ui-chrome-refresh")) {
+  .tab-content {
+    padding-inline-end: 13px !important;
+  }
+}
+
+/* Fix the extensions button being bigger with the new icons */
+#unified-extensions-button > image {
+  transform: unset !important;
+}
+
+/* Fix the zoom percentage text not being vertically aligned on windows */
+@media (-moz-platform: windows) {
+  toolbar .toolbarbutton-1 > .toolbarbutton-text {
+    min-height: unset !important;
+    padding-top: 0 !important;
+  }
+}
