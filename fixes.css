@@ -280,11 +280,11 @@ toolbar .toolbarbutton-1#zoom-in-button {
 /* Fix the fact that the precedent rules cancels this good behavior */
 #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child,
 #nav-bar-customization-target > toolbarpaletteitem:first-child > :is(toolbarbutton, toolbaritem) {
-  padding-inline-start: var(--toolbar-start-end-padding) !important;
+  padding-inline-start: calc(var(--toolbar-start-end-padding) - 1px) !important;
 }
 
 #PanelUI-menu-button {
-  padding-inline-end: var(--toolbar-start-end-padding) !important;
+  padding-inline-end: calc(var(--toolbar-start-end-padding) - 1px) !important;
 }
 
 /* More even padding on tabs on the X axis when chrome ui refresh is enabled (the x button was off by one pixel on the left, the favicon was also off)  */
@@ -309,4 +309,9 @@ toolbar .toolbarbutton-1#zoom-in-button {
     min-height: unset !important;
     padding-top: 0 !important;
   }
+}
+
+/* Fix the spacing of the bookmarks (first of type) being off on the left compared to the bottom */
+toolbarbutton.bookmark-item:not(.subviewbutton):first-of-type {
+  margin-left: 0 !important;
 }
