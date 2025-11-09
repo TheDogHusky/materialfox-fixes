@@ -1,6 +1,7 @@
+
 *, html, body {
   text-rendering: optimizelegibility !important;
-	font-smooth: always !important;
+  font-smooth: always !important;
   -webkit-font-smoothing: antialiased !important;
 }
 
@@ -72,7 +73,7 @@ tooltip {
 #urlbar-background, #searchbar {
     background-color: var(--md-background-color-50) !important;
     transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; 
-	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;*/
+    /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;*/
     border: 1px solid var(--md-menu-border-color) !important;
     transition-delay: 40ms !important;
 }
@@ -314,4 +315,9 @@ toolbar .toolbarbutton-1#zoom-in-button {
 /* Fix the spacing of the bookmarks (first of type) being off on the left compared to the bottom */
 toolbarbutton.bookmark-item:not(.subviewbutton):first-of-type {
   margin-left: 0 !important;
+}
+
+/* https://github.com/edelvarden/material-fox-updated/issues/143 */
+.tabbrowser-tab {
+    position: static !important;
 }
