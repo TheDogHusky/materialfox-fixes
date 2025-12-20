@@ -19,6 +19,10 @@ And finally, add the following line to your `userContent.css` file:
 @import "fixes.css";
 ```
 
+## Regarding the official repo
+
+I forked the original material-fox-updated, and am making the correct fixes to it to finally make a PR. You can follow the progress [here](https://github.com/TheDogHusky/material-fox-updated)
+
 ## Notes
 
 - This file is meant to be used with the MaterialFox refresh-ui theme.
